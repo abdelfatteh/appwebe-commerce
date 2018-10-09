@@ -20,9 +20,9 @@ public class Micrpcomerce1Application implements CommandLineRunner{
 
 	@Override
 	public void run(String... args) throws Exception {
-		produitRepository.save(new produit("SAMSUNG",700,5,"france"));
-		produitRepository.save(new produit("DELL",780,4,"allemagne"));
-		produitRepository.save(new produit("Acer",800,7,"allemagne"));
+		produitRepository.save(new produit(1,"SAMSUNG",700,5,"france"));
+		produitRepository.save(new produit(2,"DELL",780,4,"allemagne"));
+		produitRepository.save(new produit(3,"Acer",800,7,"allemagne"));
 
 	}
 }

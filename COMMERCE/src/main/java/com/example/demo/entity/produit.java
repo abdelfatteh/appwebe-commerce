@@ -1,14 +1,11 @@
 package com.example.demo.entity;
-
-import java.io.Serializable;
-
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 @Entity
-public class produit implements Serializable{
+public class produit{
 	@Id  @GeneratedValue
 private int id;
 private String desgnation;
@@ -46,8 +43,9 @@ public int getQantite() {
 public void setQantite(int qantite) {
 	this.qantite = qantite;
 }
-public produit(String desgnation, double prix, int qantite ,String origine ) {
+public produit(int id ,String desgnation, double prix, int qantite ,String origine ) {
 	super();
+	this.id=id;
 	this.desgnation = desgnation;
 	this.prix = prix;
 	this.qantite = qantite;
