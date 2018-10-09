@@ -5,6 +5,8 @@ import java.io.Serializable;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+
+import com.fasterxml.jackson.annotation.JsonIgnore;
 @Entity
 public class produit implements Serializable{
 	@Id  @GeneratedValue
@@ -12,8 +14,16 @@ private int id;
 private String desgnation;
 private double prix;
 private int qantite;
+@JsonIgnore
+private String origine ;
+public String getorigine() {
+	return origine;
+}
 public int getId() {
 	return id;
+}
+public void setorigine(String origine) {
+	this.origine = origine;
 }
 public void setId(int id) {
 	this.id = id;
@@ -36,11 +46,12 @@ public int getQantite() {
 public void setQantite(int qantite) {
 	this.qantite = qantite;
 }
-public produit(String desgnation, double prix, int qantite) {
+public produit(String desgnation, double prix, int qantite ,String origine ) {
 	super();
 	this.desgnation = desgnation;
 	this.prix = prix;
 	this.qantite = qantite;
+	this.origine=origine;
 }
 public produit() {
 	super();
