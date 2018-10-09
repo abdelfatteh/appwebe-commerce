@@ -26,8 +26,15 @@ private produitRepository produitRepository ;
 	public produit getproduit(@PathVariable(name="id") int id){
 		return produitRepository.findOne(id);
 	}
-@RequestMapping(value="/produits}",method=RequestMethod.POST)
+/*ajoute un produit*/
+@RequestMapping(value="/produits",method=RequestMethod.POST)
 public produit save(@RequestBody produit p){
+	return produitRepository.save(p);
+}
+/*mise a jour*/
+@RequestMapping(value="/produits/{id}",method=RequestMethod.PUT)
+public produit update(@PathVariable(name="id") int id,@RequestBody produit p){
+	p.setId(id);
 	return produitRepository.save(p);
 }
 }
