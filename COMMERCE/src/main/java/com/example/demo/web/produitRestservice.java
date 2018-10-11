@@ -3,6 +3,7 @@ package com.example.demo.web;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -36,5 +37,12 @@ public produit save(@RequestBody produit p){
 public produit update(@PathVariable(name="id") int id,@RequestBody produit p){
 	p.setId(id);
 	return produitRepository.save(p);
+}
+@RequestMapping(value = { "/produits" }, method = RequestMethod.GET)
+public String viewproduit (Model model) {
+
+    model.addAttribute("produitRepository", produitRepository);
+
+    return "produits";
 }
 }
