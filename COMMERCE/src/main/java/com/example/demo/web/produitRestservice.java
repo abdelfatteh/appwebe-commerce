@@ -2,6 +2,10 @@ package com.example.demo.web;
 
 import java.util.List;
 
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -38,11 +42,12 @@ public produit update(@PathVariable(name="id") int id,@RequestBody produit p){
 	p.setId(id);
 	return produitRepository.save(p);
 }
-@RequestMapping(value = { "/produits" }, method = RequestMethod.GET)
-public String viewproduit (Model model) {
+@RequestMapping(value = { "/produit" }, method = RequestMethod.GET)
+public String viewproduit (Model model,HttpServletRequest request, HttpServletResponse response,HttpSession session) {
 
-    model.addAttribute("produitRepository", produitRepository);
+    model.addAttribute("produitRepository",produitRepository );
+   
 
-    return "produits";
+    return "produit";
 }
 }

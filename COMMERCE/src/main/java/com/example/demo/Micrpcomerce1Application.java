@@ -23,6 +23,9 @@ public class Micrpcomerce1Application implements CommandLineRunner{
 		produitRepository.save(new produit(1,"SAMSUNG",700,5,"france"));
 		produitRepository.save(new produit(2,"DELL",780,4,"allemagne"));
 		produitRepository.save(new produit(3,"Acer",800,7,"allemagne"));
+		
+	    
+
 
 	}
 }
