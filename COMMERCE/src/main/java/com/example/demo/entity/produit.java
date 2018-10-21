@@ -1,15 +1,18 @@
 package com.example.demo.entity;
+import java.io.Serializable;
+import java.util.List;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 @Entity
-public class produit{
+public class produit  implements Serializable{
 	@Id  @GeneratedValue
-private int id;
+	private int id;
 private String desgnation;
-private double prix;
+private  double prix;
 private int qantite;
 @JsonIgnore
 private String origine ;
@@ -55,4 +58,5 @@ public produit() {
 	super();
 	// TODO Auto-generated constructor stub
 }
+
 }

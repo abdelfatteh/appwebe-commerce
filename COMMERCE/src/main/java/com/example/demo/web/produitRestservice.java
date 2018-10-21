@@ -1,19 +1,12 @@
 package com.example.demo.web;
-
 import java.util.List;
-
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
-
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RestController;
 
+import org.springframework.web.bind.annotation.RestController;
 import com.example.demo.dao.produitRepository;
 import com.example.demo.entity.produit;
 
@@ -21,18 +14,20 @@ import com.example.demo.entity.produit;
 public class produitRestservice {
 	@Autowired
 private produitRepository produitRepository ;
-/*	affiche list de produit*/
-	@RequestMapping(value="/produits",method=RequestMethod.GET)
+	/*affiche list de produit*/
+	@RequestMapping(value="/list",method=RequestMethod.GET)
 	public List<produit> listeproduit(){
 		return produitRepository.findAll();
+	
 	}
+
 /*	affiche un produit d'apres id
 */	@RequestMapping(value="/produits/{id}",method=RequestMethod.GET)
 	public produit getproduit(@PathVariable(name="id") int id){
 		return produitRepository.findOne(id);
 	}
 /*ajoute un produit*/
-@RequestMapping(value="/produits",method=RequestMethod.POST)
+@RequestMapping(value="/produitst",method=RequestMethod.POST)
 public produit save(@RequestBody produit p){
 	return produitRepository.save(p);
 }
@@ -42,12 +37,5 @@ public produit update(@PathVariable(name="id") int id,@RequestBody produit p){
 	p.setId(id);
 	return produitRepository.save(p);
 }
-@RequestMapping(value = { "/produit" }, method = RequestMethod.GET)
-public String viewproduit (Model model,HttpServletRequest request, HttpServletResponse response,HttpSession session) {
 
-    model.addAttribute("produitRepository",produitRepository );
-   
-
-    return "produit";
-}
 }
