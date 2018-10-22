@@ -14,7 +14,7 @@
 			<th>id</th>
 			<th>designation</th>
 			<th>prix</h>
-			<th>qantite</th>
+			<th>qantite</th>			
 		</tr>
 		
 		<!--  listeProduit  -->
@@ -23,7 +23,7 @@
 				<td>${o.id }</td>
 				<td>${o.desgnation }</td>
 				<td>${o.prix }</td>
-				<td>${o.qantite }</td>
+				<td>${o.qantite }</td>				
 			</tr>
 		</sw:forEach>
 	</table>
